@@ -26,9 +26,10 @@ else
     alias history='fc -l 1'
 fi
 # List direcory contents
-alias la='ls -lahp'
-alias l='ls -lap'
-alias ll='ls -lp'
+alias lsa='ls -lahp'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
 alias sl=ls # often screw this up
 
 alias afind='ack-grep -il'
