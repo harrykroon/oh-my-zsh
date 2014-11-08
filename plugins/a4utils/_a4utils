@@ -1,0 +1,24 @@
+#compdef a4ensite a4dissite a4enmod a4dismod
+
+local -a mods
+
+case "$service" in
+    a4ensite)
+	_wanted sites expl sites \
+	  _files -W /usr/local/etc/apache2/2.4/sites-available
+	;;
+    a4dissite)
+	_wanted sites expl sites \
+	  _files -W /usr/local/etc/apache2/2.4/sites-enabled
+	;;
+    a4enmod)
+	mods=( /usr/local/etc/apache2/2.4/mods-available/*.load(N:r:t) )
+	_wanted mods expl mods compadd -a mods
+	;;
+    a4dismod)
+	mods=( /usr/local/etc/apache2/2.4/mods-enabled/*.load(N:r:t) )
+	_wanted mods expl mods compadd -a mods
+	;;
+esac
+
+return 0
